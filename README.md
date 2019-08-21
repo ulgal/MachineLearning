@@ -20,7 +20,16 @@ if wx + b > 0:
 ## CNN(Convolutional Neural Network)  
 합성곱 신경망  
 Layer 많으면 DCNN, 필터의 깊이는 진행될수록 깊어짐, 마지막 단계에서는 일반적으로 하나 이상의 완전 연결 계층으로 구성.
-적은 Training data에 대해 좋은 효율을 보임  
+적은 Training data에 대해 좋은 효율을 보이며, Transfer Training을 자주 사용.
+
+<br>
+
+### Transfer Learning  
+전이 학습  
+- 기존에 만들어진 모델을 사용하여 새로운 모델을 만들 때 학습을 빠르게 하고 예측을 더 높임.
+- 이미 학습된 weight에서 우리가 원하는 학습에 맞게 fine tuning함.
+- fine tuning에는 feature extraction, 학습된 모델 사용, 일부 layer 조정 등이 있다.
+- 데이터가 부족한 경우 활용하기 좋다.
   
 <br>
 
@@ -28,8 +37,9 @@ Layer 많으면 DCNN, 필터의 깊이는 진행될수록 깊어짐, 마지막 �
 적대적 생성 네트워크  
 일반적으로 두 개의 네트워크로 구성할 때, 하나는 진짜처럼 보이는 합성 데이터를 위조하게 학습하고, 다른 하나는 위조한 데이터와 진짜 데이터를 구분하게 학습  
 두 네트워크간 경쟁을 통한 향상  
+배치 정규화: 각 단위에 대한 입력을 평균 및 단위분산을 0으로 정규화해 학습을 안정화시키는 데 도움. 여러 상황에서 학습을 가속화하고 잘못된 초기화 문제를줄 줄이며, 일반적으로 더 정확한 결과를 산출하는 것이 경험적으로 입증됨.  
 - DCGAN - Deep Convolutional Generative Adversarial Networks  
-CNN 활용하여 위조 생산 
+CNN 활용하여 위조 생산  
 
 <br>
 
@@ -57,7 +67,6 @@ Autoencoder는 차원 축소와 벡터 연산 효율성의 이점이 있다.
 - 고차원의 데이터를 바로 연산하는 것보다 저차원의 데이터로 바꾼 뒤 연산하여 다시 고차원으로 복원하는 것이 좋은 경우가 있다.(ex, 이미지 합성)   
 
 <br>
-
 
 ## Dimension  
 차원 축소  
@@ -175,7 +184,8 @@ Semisupervise - 개에 대해서 학습, 다른 data도 들어옴
     - 활성화함수
         - sigmoid: -inf to 0, inf to 1, (0,1)의 출력값을 갖는 출력층에 적절, [True, False]  
         - tanh: -inf to -1, inf to 1, (-1,1)  
-        - ReLU: 은닉층에 적절, 활성화 함수 없이 사용할 경우 단순 PCA와 비슷한 결과  
+        - ReLU: 은닉층에 적절, 활성화 함수 없이 사용할 경우 단순 PCA와 비슷한 결과 
+        - LeakyReLU: ReLU의 특별한 버전, 다양한 상황에서 GAN의 성능 개선
         <pre>
         if x<0:  
             return 0  
