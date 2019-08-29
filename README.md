@@ -133,7 +133,7 @@ Semisupervise - 개에 대해서 학습, 다른 data도 들어옴
     ```
 - MLP
     - bias, 활성화 함수가 없을 경우, 모든 벡터에 대해 가중치를 계산하므로 PCA와 결과값이 거의 비슷하게 나옴.
-    - bias, 활성화 함수가 있을 경우, weight과 bias가 변하면서 영향력이 큰 인자에 대해 weight 및 bias가 조정됨
+    - bias, 활성화 함수가 있을 경우, weight과 bias가 변하면서 영향력이 큰 인자에 대해 weight 및 bias가 조정되고, 활성화 함수에 의해 비선형 변환됨.  
     ```python
     input_layer = Input(shape=(n, n)) or input_layer = Input(shape(m, ))
     flatten_layer = Flatten()(input_layer)
@@ -206,7 +206,7 @@ Semisupervise - 개에 대해서 학습, 다른 data도 들어옴
         - Recall(재현율) - 올바르게 예측한 것 중 긍정으로 예측한 것이 실제로 참인 경우의 비율  
     - optimizer:  
         - SGD(Stochastic Gradient Descent) - 확률적 경사하강법  
-        - RMSprop, Aam - SGD에 관성개념 포함, 많은 계산 비용 필요 시 빠른 수렴 가능  
+        - RMSprop, Adam - SGD에 관성개념 포함, 많은 계산 비용 필요 시 빠른 수렴 가능  
   
 - Learning(Model.fit)  
     - epochs - 모델이 학습 데이터셋 전체를 살펴본 횟수, 각 반복마다 optimizer를 통해 목적 함수가 최소화되도록 가중치 조정 // 모델의 복잡도   
